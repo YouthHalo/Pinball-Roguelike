@@ -1,6 +1,34 @@
-[gd_scene load_steps=2 format=3 uid="uid://cq0eg82uqb7rh"]
+[gd_scene load_steps=4 format=3 uid="uid://cq0eg82uqb7rh"]
 
 [ext_resource type="Script" uid="uid://c83ruhdi2m17v" path="res://scripts/paddles.gd" id="1_nt5oo"]
+[ext_resource type="Texture2D" uid="uid://cxgghuua0me5g" path="res://icon.svg" id="2_facgq"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_yosyu"]
+radius = 30.0
+height = 300.0
 
 [node name="Paddles" type="Node2D"]
 script = ExtResource("1_nt5oo")
+
+[node name="Left" type="AnimatableBody2D" parent="."]
+position = Vector2(400, 536)
+rotation = 2.0944
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Left"]
+shape = SubResource("CapsuleShape2D_yosyu")
+
+[node name="Sprite2D" type="Sprite2D" parent="Left"]
+position = Vector2(1.90735e-05, -2.24113e-05)
+scale = Vector2(0.473522, 2.35743)
+texture = ExtResource("2_facgq")
+
+[node name="Right" type="AnimatableBody2D" parent="."]
+position = Vector2(824, 536)
+rotation = -2.0944
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Right"]
+shape = SubResource("CapsuleShape2D_yosyu")
+
+[node name="Sprite2D2" type="Sprite2D" parent="Right/CollisionShape2D"]
+scale = Vector2(0.473522, 2.35743)
+texture = ExtResource("2_facgq")
